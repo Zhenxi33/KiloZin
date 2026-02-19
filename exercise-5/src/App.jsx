@@ -1,21 +1,21 @@
 import Card from "./components/Card.jsx";
 import { MIT } from "./data.js";
+import "./App.css";
 
 function App() {
   return (
     <>
       <header>
-        <h1>MIT CREW</h1>
-        <p>Meet the legendary members of the team!</p>
+        <h1>✨ MIT Crew ✨</h1>
+        <p>Meet the legendary members of our team!</p>
       </header>
+      
       <main>
-        <section className="cards-category">
-          <ul className="cards">
-            {MIT.map((item) => (
-              <Card key={item.id} item={item} />
-            ))}
-          </ul>
-        </section>
+        <div className="cards-grid">
+          {MIT.map((member) => (
+            <Card key={member.id} member={member} />
+          ))}
+        </div>
       </main>
     </>
   );

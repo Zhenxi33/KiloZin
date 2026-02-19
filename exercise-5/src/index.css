@@ -1,22 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,400;10..48,700&family=Raleway:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-html {
-  font-family: "Bricolage Grotesque", sans-serif;
-  line-height: 1.5;
-  color: #defaf8;
-  height: 100%;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: #f0f2f5;
   padding: 2rem;
-  background: linear-gradient(180deg, #1f1c2c 0%, #1f1c2c 100%);
+  min-height: 100vh;
 }
 
 header {
@@ -25,125 +19,102 @@ header {
 }
 
 header h1 {
-  margin: 0;
-  font-size: 3rem;
-  text-transform: uppercase;
-  letter-spacing: 1rem;
-  color: #feee86;
-  text-shadow: 0 0 10px rgba(254, 238, 134, 0.5);
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
 }
 
 header p {
-  margin: 1rem auto 0;
-  font-size: 1.15rem;
-  max-width: 38ch;
-  color: #9eb5b4;
+  font-size: 1.1rem;
+  color: #666;
 }
 
-main {
+.cards-grid {
   max-width: 1200px;
   margin: 0 auto;
-}
-
-.cards-category {
-  max-width: 85rem;
-  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
   padding: 1rem;
 }
 
-.cards {
-  max-width: 80rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-  grid-gap: 2rem;
-  margin: 2rem auto;
-  padding: 0;
-  list-style: none;
-}
-
-.card-item {
-  display: flex;
-  flex-direction: column;
-  border-radius: 8px;
-  background: #1f1c2c;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  animation: slide-up-fade-in 0.3s ease-out forwards;
+.card {
+  background: white;
+  border-radius: 16px;
   overflow: hidden;
-  border: 1px solid #0d373e;
-  padding: 1.5rem;
-}
-
-.card-item button {
-  background: transparent;
-  border: none;
-  padding: 0;
-  transition: all 0.2s ease-in-out;
-  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
-  text-align: left;
 }
 
-.card-item button:hover {
-  transform: translateY(-5px);
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
-.card-item img {
+.card-image {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  border: 2px solid #0d373e;
+  border-bottom: 3px solid #667eea;
 }
 
-.card-item h3 {
-  font-family: "Raleway", sans-serif;
-  font-weight: bold;
-  font-size: 1.5rem;
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
   margin-bottom: 0.5rem;
-  color: #feee86;
 }
 
-.card-item .class {
-  font-size: 1rem;
-  color: #8feeff;
-  font-weight: bold;
-  margin-bottom: 0.25rem;
+.card-class {
+  display: inline-block;
+  background: #667eea;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.5px;
 }
 
-.card-item .hobby {
-  font-size: 1rem;
-  color: #9eb5b4;
+.card-hobby {
+  font-size: 0.95rem;
+  color: #666;
   margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
 }
 
-.card-item .extra-info {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid #0d373e;
+.card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-detail {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 0.9rem;
+  color: #555;
 }
 
-.card-item .extra-info p {
-  color: #9eb5b4;
-  margin-bottom: 0.25rem;
+.card-detail span:first-child {
+  font-weight: 500;
+  color: #888;
+  min-width: 70px;
 }
 
-.card-item .extra-info span {
-  color: #feee86;
-  font-weight: bold;
-  margin-right: 0.5rem;
-}
-
-@keyframes slide-up-fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(3rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.card-detail span:last-child {
+  color: #333;
 }
 
 @media (max-width: 768px) {
@@ -153,11 +124,9 @@ main {
   
   header h1 {
     font-size: 2rem;
-    letter-spacing: 0.5rem;
   }
   
-  .cards {
-    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  .cards-grid {
     gap: 1rem;
   }
 }
